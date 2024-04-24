@@ -1,0 +1,41 @@
+from typing import List
+
+def f(s: str):
+    return "Hello " + s == "Hello world"
+
+def g():
+    return "world"
+
+assert f(g())
+
+def f(s: str):
+    return "Hello " + s[::-1] == "Hello world"
+
+def g():
+    return "world"[::-1]
+
+assert f(g())
+
+def f(x: List[int]):
+    return len(x) == 2 and sum(x) == 3
+
+def g():
+    return [1, 2]
+
+assert f(g())
+
+def f(s: List[str]):
+    return len(set(s)) == 1000 and all((x.count("a") > x.count("b")) and ('b' in x) for x in s)
+
+def g():
+    return ["a"*(i+2)+"b" for i in range(1000)]
+
+assert f(g())
+
+def f(n: int):
+    return str(n * n).startswith("123456789")
+
+def g():
+    return int(int("123456789" + "0"*9) ** 0.5) + 1
+
+assert f(g())
